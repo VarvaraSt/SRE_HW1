@@ -104,6 +104,7 @@ def create_event(url, cookie, csrf, team_name, start_time, end_time, user_name, 
     :param role: роль дежурного
     :return: результат запроса
     """
+    print(start_time.timetuple())
     return requests.post("http://{}/api/v0/events".format(url), headers={"x-csrf-token": csrf},
                          data=json.dumps({"start": time.mktime(start_time.timetuple()),
                                           "end": time.mktime(end_time.timetuple()), "user": user_name,
