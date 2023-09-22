@@ -31,6 +31,7 @@ with open(path, "r") as file:
             api_functions.add_user_to_roster(url, cookie, csrf, team["name"], "team_members", user["name"])
             # Создание дежурств
             for event in user['duty']:
+                print(datetime.strptime(event['date'], "%d/%m/%Y"))
                 api_functions.create_event(url, cookie, csrf, team["name"],
                                            datetime.strptime(event['date'], "%d/%m/%Y"),
                                            datetime.strptime(event['date'], "%d/%m/%Y") + timedelta(days=1),
